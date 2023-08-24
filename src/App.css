@@ -1,31 +1,46 @@
 .App {
-  text-align: center;
+  font-family: 'Aeonik';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background {
+  background-image: url("https://sxcontent9668.azureedge.us/cms-assets/assets/Crew_7_vertical_082123_DSC_9193_desktop_09637e2988.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+header, section:nth-of-type(1) {
+  height: 100vh;
+}
+
+@media(min-width: 1024px) {
+  .cards {
+    width: 610px;
+    transition: 4s, 1.5s ease-in-out;
+  }
+  .start {
+    padding-right: 20px;
+  }
+  .mid {
+    left: 25%;
+    width: 50%;
+  }
+  .start:hover~.mid {
+    left: 45%
+  }
+  .mid:hover {
+    left: 10%
+  }
+  .mid:hover~.third {
+    left: 5%
+  }
+  .third:hover {
+    left: -2%
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
