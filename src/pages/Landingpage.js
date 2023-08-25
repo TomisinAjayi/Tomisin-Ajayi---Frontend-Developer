@@ -12,7 +12,7 @@ const Landingpage = () => {
 
     return (
         <div className='background'>
-            <div className='container mx-auto p-5'>
+            <div className=''>
                 <Navbar />
                 <Header />
                 <Banner />

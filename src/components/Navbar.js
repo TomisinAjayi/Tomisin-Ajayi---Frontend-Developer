@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 const Navbar = () => {
 
     return (
-        <nav className="flex justify-between items-center">
+        <nav className="flex justify-between items-center container mx-auto pt-5">
             <a href='#' className="title-font text-2xl text-white font-bold hover:text-black hover:underline hover:underline-offset-8">
                 SpaceX
             </a>

@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
 
   return (
-    <header className="flex flex-col justify-center">
+    <header className="flex flex-col justify-center container mx-auto p-5">
         <div>
             <h1 className="text-white text-8xl font-bold">SpaceX</h1>
             <br />
