@@ -1,19 +1,35 @@
 <?php
-// Replace 'YOUR_API_KEY' with your actual SpaceX API key
-$apiKey = 'spacex-key';
+// Include the configuration file
+$config = include('./config.php');
 
-// Get the header from the request
-$receivedHeader = $_SERVER['HTTP_SPACEX_KEY'] ?? '';
+// API endpoint
+$apiUrl = 'https://api.spacexdata.com/v4/capsules';
 
-echo $receivedHeader; 
+// Initialize cURL session
+$ch = curl_init();
 
-// Check if the received header matches the API key
-if ($receivedHeader === $apiKey) {
-    // Authentication successful, proceed with protected route logic
-    echo "Authentication successful! You have access to the protected route.";
+// Set cURL options
+curl_setopt($ch, CURLOPT_URL, $apiUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Authorization: Bearer ' . $config['bearer_token']
+]);
+
+// Execute cURL session
+$response = curl_exec($ch);
+
+// Check for cURL errors
+if (curl_errno($ch)) {
+    echo 'Curl error: ' . curl_error($ch);
+}
+
+// Close cURL session
+curl_close($ch);
+
+// Process the API response
+if ($response) {
+    echo 'API Response: ' . $response;
 } else {
-    // Authentication failed, return 401 Unauthorized response
-    http_response_code(401);
-    echo "Authentication failed. Unauthorized.";
+    echo 'Failed to fetch data from the API.';
 }
 ?>
